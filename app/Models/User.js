@@ -22,7 +22,7 @@ class User extends Model {
   }
 
   tweets() {
-    return this.hasMany('App\Models\Tweet')
+    return this.hasMany('App/Models/Tweet')
   }
 
   reply() {
