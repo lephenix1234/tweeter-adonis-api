@@ -31,7 +31,15 @@ class User extends Model {
 
   followers() {
     return this.belongsToMany('App/Models/User', 'user_id', 'follower_id').pivotTable('followers')
+    // select follower_id where user_id=1
   }
+
+  following() {
+    return this.belongsToMany('App/Models/User', 'follower_id', 'user_id').pivotTable('followers')
+    // select user_id where 
+  }
+
+
 
   favorites() {
     return this.hasMany('App/Models/Favorite')

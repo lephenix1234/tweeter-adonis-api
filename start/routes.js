@@ -32,8 +32,10 @@ Route.post('/signup', 'UserController.signup')
 
 Route.post('/login', 'UserController.login')
 
-// Route.group(() => {
-//   Route.get('/me', 'UserController.me')
-//   Route.put('/update_profile', 'UserController.updateProfil')
-// }).prefix('account').middleware(['auth:jwt'])
-Route.get('/me', 'UserController.me')
+Route.group(() => {
+  Route.get('/me', 'UserController.me')
+  Route.put('/update_profile', 'UserController.updateProfil')
+}).prefix('account').middleware(['auth:jwt'])
+Route.get('/test', 'UserController.test')
+Route.put('/change_password', 'UserController.changePassword')
+Route.get(':username', 'UserController.showProfile').middleware(['auth:jwt'])
